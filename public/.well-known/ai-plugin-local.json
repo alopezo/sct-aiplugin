@@ -1,0 +1,18 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "SNOMED CT Browser Plugin",
+    "name_for_model": "sctBrowser",
+    "description_for_human": "Plugin for searching SNOMED CT codes (conceptIds) in the public SNOMED CT Browser.",
+    "description_for_model": "Plugin for searching SNOMED CT codes (conceptIds) in the public SNOMED CT Browser.",
+    "auth": {
+      "type": "none"
+    },
+    "api": {
+      "type": "openapi",
+      "url": "http://localhost:3000/openapi.yaml"
+    },
+    "logo_url": "http://localhost:3000/sct-logo.png",
+    "contact_email": "info@snomed.org",
+    "legal_info_url": "https://www.snomed.org/get-snomed"
+  }
+  

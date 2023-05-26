@@ -1,0 +1,41 @@
+openapi: 3.0.1
+info:
+  title: SNOMED CT Plugin
+  description: A plugin that allows chatGPT to access SNOMED CT content. If the user asks for SNOMED CT codes, use the API to retrieve codes by searching for the concept term in the query parameter and choosing the first match. If there are no matches try again with the stem of the term.
+  version: "v1"
+servers:
+  - url: http://localhost:3000/api
+paths:
+  /search:
+    get:
+      operationId: searchSnomedCT
+      summary: Search by term
+      parameters:
+      - in: query
+        name: term
+        schema:
+          type: string
+        description: The term used as filter to apply to the search results.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/searchSnomedCTResponse'
+components:
+  schemas:
+    searchSnomedCTResponse:
+      type: object
+      properties:
+        expansion:
+          type: object
+          properties:
+            contains:
+              type: array
+              items:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    description: The SNOMED CT code that matches the term.
