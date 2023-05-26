@@ -38,4 +38,4 @@ components:
                 properties:
                   code:
                     type: string
-                    description: The SNOMED CT code that matches the term.
+                    description: The SNOMED CT code that matches the term. To display this code to the user provide a link using this pattern http://snomed.info/id/{conceptId}.
