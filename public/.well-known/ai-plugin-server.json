@@ -3,7 +3,7 @@
     "name_for_human": "SNOMED CT Browser Plugin",
     "name_for_model": "sctBrowser",
     "description_for_human": "Plugin for searching SNOMED CT codes (conceptIds) in the public SNOMED CT Browser.",
-    "description_for_model": "Plugin for searching SNOMED CT codes (conceptIds) in the public SNOMED CT Browser.",
+    "description_for_model": "Plugin for searching SNOMED CT codes (conceptIds) in the public SNOMED CT Browser. If the user requests an URI for a SNOMED CT code, the plugin will provide a link http://snomed.info/id/{conceptId}.",
     "auth": {
       "type": "none"
     },
