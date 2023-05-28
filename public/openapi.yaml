@@ -46,3 +46,6 @@ components:
                   code:
                     type: string
                     description: The SNOMED CT code that matches the term. Present to the user as a SNOMED URI.
+                  display:
+                    type: string
+                    description: The term for this concept.
