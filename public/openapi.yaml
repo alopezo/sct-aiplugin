@@ -15,7 +15,7 @@ paths:
         name: term
         schema:
           type: string
-        description: The term used as filter to apply to the search results.
+        description: The term used as filter to apply to the search results. This term should be provided in English language.
       responses:
         "200":
           description: OK
