@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: SNOMED CT Plugin
-  description: A plugin that allows chatGPT to access SNOMED CT content. If the user asks for SNOMED CT codes, use the API to retrieve codes by searching for the concept term in the query parameter and choosing the first match. If there are no matches try again with the stem of the term.
+  description: A plugin that allows chatGPT to access SNOMED CT content. If the user asks for SNOMED CT codes, use the API to retrieve codes by searching for the concept term translated to english in the query parameter and choosing the first match. If there are no matches try again with the stem of the term.
   version: "v1"
 servers:
   - url: https://sct-aiplugin.vercel.app/api
