@@ -3,7 +3,7 @@
   "name_for_human": "SNOMED CT Browser Plugin",
   "name_for_model": "sctBrowser",
   "description_for_human": "Plugin for searching SNOMED CT codes (conceptIds) in the public SNOMED CT Browser.",
-  "description_for_model": "Plugin for searching SNOMED CT codes (conceptIds) in the public SNOMED CT Browser. The results should be presented to the user using the SNOMED URIs format.",
+  "description_for_model": "Plugin for searching SNOMED CT codes (conceptIds) in the public SNOMED CT Browser. The results should be presented to the user using the SNOMED URIs format.  \n For example,\n 1. Cough: http://snomed.info/id/49727002\n 2. Dyspnea on exertion: http://snomed.info/id/60845006",
   "auth": {
     "type": "none"
   },
