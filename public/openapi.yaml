@@ -45,4 +45,4 @@ components:
                 properties:
                   code:
                     type: string
-                    description: The SNOMED CT code that matches the term.
+                    description: The SNOMED CT code that matches the term. Present to the user as a SNOMED URI.
