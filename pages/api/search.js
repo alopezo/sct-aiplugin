@@ -3,7 +3,6 @@ import cors from '../../middleware/cors';
 import fetch from 'node-fetch'
 
 export default async function handler(req, res) {
-    console.log(req.query);
     const term = req.query.term;
     const modulesMap = {
         en: '900000000000207008',
@@ -20,7 +19,6 @@ export default async function handler(req, res) {
         moduleId = modulesMap[language];
     }
     const url = `https://snowstorm.ihtsdotools.org/fhir/ValueSet/$expand?filter=${term}&offset=0&count=1&language=${language}&displayLanguage=${language}&url=http%3A%2F%2Fsnomed.info%2Fsct%2F${moduleId}%3Ffhir_vs&_format=json`;
-    console.log(url);
     const response = await fetch(url)
     const data = await response.json();
     res.status(200).json(data);
