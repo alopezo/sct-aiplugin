@@ -30,6 +30,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/searchSnomedCTResponse'
+  /ecl:
+    get:
+      operationId: runECl
+      summary: Execute an ECL expression
+      parameters:
+      - in: query
+        name: ecl
+        schema:
+          type: string
+          required: true
+        description: The ecl (Expression Constraint Query) to run
+      - in: query
+        name: language
+        schema:
+          type: string
+          required: true
+        description: The language of the user prompt. Examples es, en, fr. Required value in all requests.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/searchSnomedCTResponse'
 components:
   schemas:
     searchSnomedCTResponse:
