@@ -30,40 +30,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/searchSnomedCTResponse'
-  /ecl:
-    get:
-      operationId: runECl
-      summary: Execute an ECL expression. Always respond to the user with the ecl in a preformatted block in markdown and the total number of matching concepts.
-      parameters:
-      - in: query
-        name: ecl
-        schema:
-          type: string
-          required: true
-        description: The ecl (Expression Constraint Query) to run
-      - in: query
-        name: language
-        schema:
-          type: string
-          required: true
-        description: The language of the user prompt. Examples es, en, fr. Required value in all requests.
-      - in: query
-        name: offset
-        schema:
-          type: integer
-          required: false
-      - in: query
-        name: count
-        schema:
-          type: integer
-          required: false
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/searchSnomedCTResponse'
 components:
   schemas:
     searchSnomedCTResponse:

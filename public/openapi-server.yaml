@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: SNOMED CT Plugin
-  description: A plugin that allows chatGPT to access SNOMED CT content. If the user asks for SNOMED CT codes, use the API to retrieve codes by searching for the concept term in the query parameter and choosing the first match. If there are no matches try again with the stem of the term.
+  description: "Get SNOMED CT codes. Validates codes used in SNOMED ECLs. Always display the code to the user as a SNOMED URI."
   version: "v1"
 servers:
   - url: https://sct-aiplugin.vercel.app/api
@@ -15,7 +15,48 @@ paths:
         name: term
         schema:
           type: string
-        description: The term used as filter to apply to the search results.
+          required: true
+        description: The term used as filter to apply to the search results
+      - in: query
+        name: language
+        schema:
+          type: string
+          required: true
+        description: The language of the user prompt. Examples es, en, fr. Required value in all requests.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/searchSnomedCTResponse'
+  /ecl:
+    get:
+      operationId: runECl
+      summary: Execute an ECL expression. Always respond to the user with the ecl in a preformatted block in markdown and the total number of matching concepts.
+      parameters:
+      - in: query
+        name: ecl
+        schema:
+          type: string
+          required: true
+        description: The ecl (Expression Constraint Query) to run
+      - in: query
+        name: language
+        schema:
+          type: string
+          required: true
+        description: The language of the user prompt. Examples es, en, fr. Required value in all requests.
+      - in: query
+        name: offset
+        schema:
+          type: integer
+          required: false
+      - in: query
+        name: count
+        schema:
+          type: integer
+          required: false
       responses:
         "200":
           description: OK
@@ -31,6 +72,9 @@ components:
         expansion:
           type: object
           properties:
+            total:
+              type: integer
+              description: The total number of matching concepts.
             contains:
               type: array
               items:
@@ -38,4 +82,7 @@ components:
                 properties:
                   code:
                     type: string
-                    description: The SNOMED CT code that matches the term
+                    description: The SNOMED CT code that matches the term. Present to the user as a SNOMED URI.
+                  display:
+                    type: string
+                    description: The term for this concept.
