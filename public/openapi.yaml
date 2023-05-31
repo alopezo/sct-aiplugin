@@ -33,7 +33,7 @@ paths:
   /ecl:
     get:
       operationId: runECl
-      summary: Execute an ECL expression
+      summary: Execute an ECL expression. Always respond to the user with the ecl in a preformatted block in markdown and the total number of matching concepts.
       parameters:
       - in: query
         name: ecl
