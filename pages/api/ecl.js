@@ -18,7 +18,15 @@ export default async function handler(req, res) {
         language = req.query.language;
         moduleId = modulesMap[language];
     }
-    const url = `https://snowstorm.ihtsdotools.org/fhir/ValueSet/$expand?offset=0&count=10&language=${language}&displayLanguage=${language}&url=http%3A%2F%2Fsnomed.info%2Fsct%2F${moduleId}%3Ffhir_vs=ecl/${ecl}&_format=json`;
+    let offset = 0;
+    if (req.query.offset) {
+        offset = req.query.offset;
+    }
+    let count = 10;
+    if (req.query.count) {
+        count = req.query.count;
+    }
+    const url = `https://snowstorm.ihtsdotools.org/fhir/ValueSet/$expand?offset=${offset}&count=${count}&language=${language}&displayLanguage=${language}&url=http%3A%2F%2Fsnomed.info%2Fsct%2F${moduleId}%3Ffhir_vs=ecl/${ecl}&_format=json`;
     const response = await fetch(url)
     const data = await response.json();
     res.status(200).json(data);

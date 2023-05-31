@@ -47,6 +47,16 @@ paths:
           type: string
           required: true
         description: The language of the user prompt. Examples es, en, fr. Required value in all requests.
+      - in: query
+        name: offset
+        schema:
+          type: integer
+          required: false
+      - in: query
+        name: count
+        schema:
+          type: integer
+          required: false
       responses:
         "200":
           description: OK
@@ -62,6 +72,9 @@ components:
         expansion:
           type: object
           properties:
+            total:
+              type: integer
+              description: The total number of matching concepts.
             contains:
               type: array
               items:
