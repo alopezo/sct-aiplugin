@@ -1,5 +1,4 @@
 // pages/api/search.js
-import cors from '../../middleware/cors';
 import fetch from 'node-fetch'
 
 export default async function handler(req, res) {
@@ -18,7 +17,7 @@ export default async function handler(req, res) {
         language = req.query.language;
         moduleId = modulesMap[language];
     }
-    const url = `https://snowstorm.ihtsdotools.org/fhir/ValueSet/$expand?filter=${term}&offset=0&count=1&language=${language}&displayLanguage=${language}&url=http%3A%2F%2Fsnomed.info%2Fsct%2F${moduleId}%3Ffhir_vs&_format=json`;
+    const url = `https://snowstorm.ihtsdotools.org/fhir/ValueSet/$expand?filter=${term}&offset=0&count=10&language=${language}&displayLanguage=${language}&url=http%3A%2F%2Fsnomed.info%2Fsct%2F${moduleId}%3Ffhir_vs&_format=json`;
     const response = await fetch(url)
     const data = await response.json();
     res.status(200).json(data);
