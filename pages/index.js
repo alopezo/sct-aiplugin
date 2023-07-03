@@ -5,47 +5,34 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>SNOMED CT ChatGPT Plugin</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          ChatGPT Plugin for SNOMED CT
         </h1>
 
         <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
+          This plugin adds to ChatGPT the capability to search SNOMED CT codes in the SNOMED International Browser, resulting in accurate and verified codes in chat interactions.
+        </p>
+
+        <p className={styles.description}>
+          Add this URL as an <i>Unverified Development Plugin</i> the ChatGPT Plugin Store.
         </p>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
+          <a href="https://openai.com/blog/chatgpt-plugins" className={styles.card}>
+            <h3>ChatGPT Plugins Info &rarr;</h3>
+            <p>Find in-depth information about plugins and how to access this feature.</p>
           </a>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
+          <a href="https://implementation.snomed.org" className={styles.card}>
+            <h3>SNOMED CT &rarr;</h3>
+            <p>Access SNOMED CT Implementation information and resources.</p>
           </a>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
         </div>
       </main>
 
