@@ -26,7 +26,9 @@ export default async function handler(req, res) {
     if (req.query.count) {
         count = req.query.count;
     }
-    const url = `https://snowstorm.ihtsdotools.org/fhir/ValueSet/$expand?offset=${offset}&count=${count}&language=${language}&displayLanguage=${language}&url=http%3A%2F%2Fsnomed.info%2Fsct%2F${moduleId}%3Ffhir_vs=ecl/${ecl}&_format=json`;
+    const server1 = 'https://snowstorm.ihtsdotools.org';
+    const server2 = 'https://snowstorm-lite.nw.r.appspot.com';
+    const url = `${server2}/fhir/ValueSet/$expand?offset=${offset}&count=${count}&language=${language}&displayLanguage=${language}&url=http%3A%2F%2Fsnomed.info%2Fsct%2F${moduleId}%3Ffhir_vs=ecl/${ecl}&_format=json`;
     const response = await fetch(url)
     const data = await response.json();
     res.status(200).json(data);
